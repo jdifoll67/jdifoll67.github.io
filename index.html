@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</title>
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -12,11 +13,10 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #9caf88 0%, #a8b894 100%);
-            min-height: 100vh;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
 
         .container {
@@ -25,58 +25,26 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #d35400;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-image {
-            width: 50px;
-            height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-image:hover {
-            transform: scale(1.1);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .logo-main {
-            font-size: 1.4rem;
-        }
-
-        .logo-sub {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            font-weight: 400;
+            color: #f39c12;
         }
 
         .nav-links {
@@ -86,131 +54,70 @@
         }
 
         .nav-links a {
+            color: white;
             text-decoration: none;
-            color: #2c3e50;
+            transition: color 0.3s ease;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
         }
 
         .nav-links a:hover {
-            background: linear-gradient(45deg, #e17055, #d35400);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);
+            color: #f39c12;
         }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(156, 175, 136, 0.9), rgba(168, 184, 148, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="25" cy="25" r="1.5" fill="%23ffffff" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.08"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2327ae60" width="1200" height="600"/><polygon fill="%23229954" points="0,600 1200,600 1200,300 0,400"/></svg>');
+            height: 70vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M0,1000 C200,900 400,800 600,850 C800,900 900,950 1000,1000 L1000,0 L0,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
             background-size: cover;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .hero-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            opacity: 0.15;
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            background-position: center;
         }
 
         .hero-content {
-            z-index: 2;
-            position: relative;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            max-width: 800px;
+            padding: 2rem;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
         }
 
-        .cta-button {
+        .btn {
             display: inline-block;
             background: linear-gradient(45deg, #f39c12, #e67e22);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            border: none;
+            cursor: pointer;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.6);
-            background: linear-gradient(45deg, #e67e22, #d35400);
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
         }
 
-        /* Sections */
-        section {
+        .section {
             padding: 4rem 0;
-            margin: 2rem 0;
-        }
-
-        .section-white {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            margin: 2rem 0;
         }
 
         .section-title {
@@ -227,16 +134,52 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #e17055, #d35400);
-            border-radius: 2px;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
         }
 
-        /* Products Grid */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -245,217 +188,188 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
 
         .product-image {
-            height: 200px;
-            background: linear-gradient(45deg, #fab1a0, #ffeaa7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            position: relative;
+            height: 250px;
             overflow: hidden;
         }
 
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
-            background-size: 50px 50px;
-            animation: rotate 20s linear infinite;
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
 
-        .product-info {
+        .product-content {
             padding: 1.5rem;
         }
 
-        .product-info h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
+        .product-content h3 {
             font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
         }
 
-        .product-info p {
-            color: #7f8c8d;
+        .product-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .news-section {
+            background: white;
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #f39c12;
+            font-weight: bold;
             font-size: 0.9rem;
-            line-height: 1.5;
         }
 
-        /* About Section */
-        .about-content {
+        .news-title {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #34495e;
-        }
-
-        .about-image {
-            height: 300px;
-            background: linear-gradient(45deg, #e17055, #d35400);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: spin 10s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Contact Section */
         .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
+            font-size: 1.1rem;
         }
 
         .contact-item {
-            background: white;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: #f39c12;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            color: #e17055;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item p {
-            color: #7f8c8d;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(44, 62, 80, 0.9);
             backdrop-filter: blur(10px);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        .footer-section h3 {
-            margin-bottom: 1rem;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
             color: #ecf0f1;
         }
 
-        .footer-section p,
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
         }
 
-        .footer-section a:hover {
-            color: #e17055;
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
         }
 
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 2rem;
-            color: #95a5a6;
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .slide-up {
-            animation: slideUp 0.8s ease-out;
-        }
-
-        @keyframes slideUp {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -465,317 +379,330 @@
                 transform: translateY(0);
             }
         }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">
-                <svg class="logo-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Outer circle -->
-                    <circle cx="100" cy="100" r="95" fill="none" stroke="#2d5a3d" stroke-width="6"/>
-                    
-                    <!-- Inner elements -->
-                    <!-- Pottery jug -->
-                    <path d="M65 80 C65 75, 70 70, 75 70 L85 70 C90 70, 95 75, 95 80 L95 130 C95 135, 90 140, 85 140 L75 140 C70 140, 65 135, 65 130 Z" fill="#c4661a"/>
-                    <ellipse cx="80" cy="75" rx="8" ry="3" fill="#c4661a"/>
-                    <path d="M95 85 C100 85, 105 90, 105 95 C105 100, 100 105, 95 105" fill="none" stroke="#c4661a" stroke-width="3"/>
-                    
-                    <!-- Olive branch -->
-                    <path d="M110 75 Q115 80, 120 85 Q125 90, 130 95" fill="none" stroke="#2d5a3d" stroke-width="3"/>
-                    <ellipse cx="115" cy="78" rx="4" ry="2" fill="#2d5a3d"/>
-                    <ellipse cx="120" cy="82" rx="4" ry="2" fill="#2d5a3d"/>
-                    <ellipse cx="125" cy="88" rx="4" ry="2" fill="#2d5a3d"/>
-                    
-                    <!-- Cheese -->
-                    <path d="M110 110 L130 110 L125 130 L105 130 Z" fill="#f4d03f"/>
-                    <circle cx="115" cy="118" r="2" fill="#f1c40f"/>
-                    <circle cx="122" cy="122" r="2" fill="#f1c40f"/>
-                    <circle cx="118" cy="125" r="1.5" fill="#f1c40f"/>
-                    
-                    <!-- Wheat -->
-                    <path d="M135 75 L135 95" stroke="#d68910" stroke-width="2"/>
-                    <path d="M132 78 L138 78" stroke="#d68910" stroke-width="1"/>
-                    <path d="M132 82 L138 82" stroke="#d68910" stroke-width="1"/>
-                    <path d="M132 86 L138 86" stroke="#d68910" stroke-width="1"/>
-                    <path d="M132 90 L138 90" stroke="#d68910" stroke-width="1"/>
-                    
-                    <!-- Text around the circle -->
-                    <defs>
-                        <path id="circle-text-top" d="M 50,100 A 50,50 0 0,1 150,100"/>
-                        <path id="circle-text-bottom" d="M 150,100 A 50,50 0 0,1 50,100"/>
-                    </defs>
-                    
-                    <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d5a3d">
-                        <textPath href="#circle-text-top" startOffset="50%" text-anchor="middle">
-                            ASOCIACIÓN PROMOCIÓN
-                        </textPath>
-                    </text>
-                    
-                    <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d5a3d">
-                        <textPath href="#circle-text-bottom" startOffset="50%" text-anchor="middle">
-                            ARTESANÍA ALIMENTARIA
-                        </textPath>
-                    </text>
-                </svg>
-                <div class="logo-text">
-                    <div class="logo-main">APPAA</div>
-                    <div class="logo-sub">Andalucía</div>
-                </div>
-            </div>
+            <div class="logo">APAA</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#noticias">Noticias</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="inicio">
-        <div class="container">
-            <svg class="hero-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- Outer circle -->
-                <circle cx="100" cy="100" r="95" fill="none" stroke="#ffffff" stroke-width="4"/>
-                
-                <!-- Inner elements -->
-                <!-- Pottery jug -->
-                <path d="M65 80 C65 75, 70 70, 75 70 L85 70 C90 70, 95 75, 95 80 L95 130 C95 135, 90 140, 85 140 L75 140 C70 140, 65 135, 65 130 Z" fill="#ffffff"/>
-                <ellipse cx="80" cy="75" rx="8" ry="3" fill="#ffffff"/>
-                <path d="M95 85 C100 85, 105 90, 105 95 C105 100, 100 105, 95 105" fill="none" stroke="#ffffff" stroke-width="3"/>
-                
-                <!-- Olive branch -->
-                <path d="M110 75 Q115 80, 120 85 Q125 90, 130 95" fill="none" stroke="#ffffff" stroke-width="3"/>
-                <ellipse cx="115" cy="78" rx="4" ry="2" fill="#ffffff"/>
-                <ellipse cx="120" cy="82" rx="4" ry="2" fill="#ffffff"/>
-                <ellipse cx="125" cy="88" rx="4" ry="2" fill="#ffffff"/>
-                
-                <!-- Cheese -->
-                <path d="M110 110 L130 110 L125 130 L105 130 Z" fill="#ffffff"/>
-                <circle cx="115" cy="118" r="2" fill="rgba(255,255,255,0.7)"/>
-                <circle cx="122" cy="122" r="2" fill="rgba(255,255,255,0.7)"/>
-                <circle cx="118" cy="125" r="1.5" fill="rgba(255,255,255,0.7)"/>
-                
-                <!-- Wheat -->
-                <path d="M135 75 L135 95" stroke="#ffffff" stroke-width="2"/>
-                <path d="M132 78 L138 78" stroke="#ffffff" stroke-width="1"/>
-                <path d="M132 82 L138 82" stroke="#ffffff" stroke-width="1"/>
-                <path d="M132 86 L138 86" stroke="#ffffff" stroke-width="1"/>
-                <path d="M132 90 L138 90" stroke="#ffffff" stroke-width="1"/>
-                
-                <!-- Text around the circle -->
-                <defs>
-                    <path id="circle-text-top-hero" d="M 50,100 A 50,50 0 0,1 150,100"/>
-                    <path id="circle-text-bottom-hero" d="M 150,100 A 50,50 0 0,1 50,100"/>
-                </defs>
-                
-                <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">
-                    <textPath href="#circle-text-top-hero" startOffset="50%" text-anchor="middle">
-                        ASOCIACIÓN PROMOCIÓN
-                    </textPath>
-                </text>
-                
-                <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">
-                    <textPath href="#circle-text-bottom-hero" startOffset="50%" text-anchor="middle">
-                        ARTESANÍA ALIMENTARIA
-                    </textPath>
-                </text>
-            </svg>
-            <div class="hero-content">
-                <h1>Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h1>
-                <p>Preservando la tradición culinaria andaluza con productos artesanales de la más alta calidad, elaborados con técnicas ancestrales y el corazón de nuestra tierra.</p>
-                <a href="#productos" class="cta-button">Descubre Nuestros Productos</a>
-            </div>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Asociación para la Promoción de la Artesanía Alimentaria Andaluza</h1>
+            <p>Preservando los sabores auténticos de nuestra tierra con productos artesanales de la más alta calidad</p>
+            <a href="#nosotros" class="btn">Descubre Nuestra Historia</a>
         </div>
     </section>
 
-    <section class="section-white" id="productos">
+    <section id="nosotros" class="section">
         <div class="container">
-            <h2 class="section-title">Nuestros Productos Artesanales</h2>
-            <div class="products-grid">
-                <div class="product-card slide-up">
-                    <div class="product-image">🥒</div>
-                    <div class="product-info">
-                        <h3>Conservas Vegetales Tradicionales</h3>
-                        <p>Conservas elaboradas con técnicas tradicionales, utilizando productos locales de temporada y recetas transmitidas de generación en generación.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🍯</div>
-                    <div class="product-info">
-                        <h3>Miel Artesana</h3>
-                        <p>Miel pura de las sierras andaluzas, recolectada de forma tradicional sin procesos industriales que alteren su sabor y propiedades naturales.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🥖</div>
-                    <div class="product-info">
-                        <h3>Pan y Panes Especiales</h3>
-                        <p>Pan artesanal horneado en hornos tradicionales con harinas locales, masa madre y especialidades regionales únicas de cada zona.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🧁</div>
-                    <div class="product-info">
-                        <h3>Confitería, Pastelería, Bollería y Repostería</h3>
-                        <p>Dulces tradicionales andaluces, pasteles caseros, bollería artesanal y repostería elaborada con recetas ancestrales y ingredientes selectos.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🍨</div>
-                    <div class="product-info">
-                        <h3>Helados Artesanos</h3>
-                        <p>Helados elaborados de forma artesanal con ingredientes naturales, sabores tradicionales y innovadores, sin conservantes artificiales.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🍫</div>
-                    <div class="product-info">
-                        <h3>Chocolate y Derivados del Cacao</h3>
-                        <p>Chocolates artesanales, bombones, trufas y productos derivados del cacao elaborados con técnicas tradicionales y cacao de calidad.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🥛</div>
-                    <div class="product-info">
-                        <h3>Yogur y Cuajadas</h3>
-                        <p>Yogures artesanales y cuajadas tradicionales elaborados con leche fresca local, fermentos naturales y procesos artesanales.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🍷</div>
-                    <div class="product-info">
-                        <h3>Licores Artesanos</h3>
-                        <p>Licores tradicionales andaluces, destilados artesanales, licores de hierbas y aguardientes elaborados con métodos ancestrales.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card slide-up">
-                    <div class="product-image">🧂</div>
-                    <div class="product-info">
-                        <h3>Sal</h3>
-                        <p>Sal marina artesanal de las salinas andaluzas, sal de manantial y sales especiales con hierbas aromáticas y especias locales.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-white" id="nosotros">
-        <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
+            <h2 class="section-title">Nuestra Misión</h2>
             <div class="about-content">
-                <div class="about-text fade-in">
+                <div class="about-text">
                     <p>La Asociación para la Promoción de la Artesanía Alimentaria de Andalucía nace del compromiso de preservar y promocionar los sabores auténticos de nuestra tierra. Reunimos a productores locales que mantienen vivas las tradiciones culinarias ancestrales, utilizando técnicas artesanales que han pasado de padres a hijos durante generaciones.</p>
-                    
-                    <p>Nuestros artesanos trabajan con materias primas de la más alta calidad, respetando los ciclos naturales y evitando procesos industriales que puedan alterar las propiedades originales de los alimentos. Cada producto que avalamos cuenta con la garantía de autenticidad y excelencia que caracteriza a la gastronomía andaluza.</p>
-                    
-                    <p>Creemos en el valor de lo local, lo sostenible y lo auténtico. Por eso, apoyamos a pequeños productores familiares que mantienen vivas las tradiciones, contribuyendo al desarrollo económico rural y a la preservación de nuestro patrimonio gastronómico.</p>
+                    <br>
+                    <p>Nuestros artesanos trabajan con materias primas de la más alta calidad, respetando los ciclos naturales y evitando procesos industriales que puedan alterar las propiedades originales de los alimentos.</p>
                 </div>
-                <div class="about-image">
-                    🏺
+                <div class="about-text">
+                    <p>Creemos en el valor de lo local, lo sostenible y lo auténtico. Por eso, apoyamos a pequeños productores familiares que mantienen vivas las tradiciones, contribuyendo al desarrollo económico rural y a la preservación de nuestro patrimonio gastronómico.</p>
+                    <br>
+                    <p>Cada producto que avalamos cuenta con la garantía de autenticidad y excelencia que caracteriza a la gastronomía andaluza.</p>
+                </div>
+            </div>
+            
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🫒</div>
+                    <h3>Tradición</h3>
+                    <p>Técnicas ancestrales transmitidas de generación en generación</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Respeto por el medio ambiente y los ciclos naturales</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Calidad</h3>
+                    <p>Productos de la más alta calidad con garantía de excelencia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-white" id="contacto">
+    <section id="productos" class="section">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-info">
-                <div class="contact-item fade-in">
-                    <div class="contact-icon">📍</div>
-                    <h3>Dirección</h3>
-                    <p>C/Paseo del Fresno, 7<br>14960 Rute, Córdoba</p>
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aceite de Oliva Artesanal">
+                    </div>
+                    <div class="product-content">
+                        <h3>Aceite de Oliva Extra Virgen</h3>
+                        <p>Aceite de oliva de primera presión en frío, elaborado con aceitunas seleccionadas de olivares centenarios andaluces.</p>
+                    </div>
                 </div>
                 
-                <div class="contact-item fade-in">
-                    <div class="contact-icon">📞</div>
-                    <h3>Teléfono</h3>
-                    <p>+34 645 92 69 40</p>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Panes Artesanos">
+                    </div>
+                    <div class="product-content">
+                        <h3>Panes Artesanos</h3>
+                        <p>Panes elaborados con harinas tradicionales y fermentación natural, cocidos en hornos de leña siguiendo recetas centenarias.</p>
+                    </div>
                 </div>
                 
-                <div class="contact-item fade-in">
-                    <div class="contact-icon">✉️</div>
-                    <h3>Email</h3>
-                    <p>appandaluza@gmail.com</p>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC_0058.jpg" alt="Queso Artesanal">
+                    </div>
+                    <div class="product-content">
+                        <h3>Confiteria</h3>
+                        <p>Productos artesanos de confiteria y bolleria elaborados con recetas típicas de nuestra tierra incluyendo recetas centenarias de conventos andaluces.</p>
+                    </div>
                 </div>
                 
-                <div class="contact-item fade-in">
-                    <div class="contact-icon">🕐</div>
-                    <h3>Horario</h3>
-                    <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.verdemiel.es/modules/homeslider/images/3f41bf8f7d9a22339c22259aea9715ec275fb5c4_Colmena-farmaceutica-VerdeMiel.jpg" alt="Miel Artesanal">
+                    </div>
+                    <div class="product-content">
+                        <h3>Miel de Azahar</h3>
+                        <p>Miel pura recolectada de colmenas ubicadas en Andalucía, con un sabor único y propiedades naturales.</p>
+                    </div>
                 </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.conservasartesanalescontigo.es/wp-content/uploads/2024/04/remolacha1-400x250.jpg" alt="Conservas Tradicionales">
+                    </div>
+                    <div class="product-content">
+                        <h3>Conservas Tradicionales</h3>
+                        <p>Conservas vegetales elaboradas con recetas familiares, sin conservantes artificiales y con productos de temporada.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC8604-2.jpg" alt="Dulces Artesanales">
+                    </div>
+                    <div class="product-content">
+                        <h3>Helados Artesanos</h3>
+                        <p> Helados con mayor sabor siguiendo recetas y procesos artesanales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="noticias" class="news-section">
+        <div class="container">
+            <h2 class="section-title">Últimas Noticias</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <div class="news-date">12 Julio 2025</div>
+                        <h3 class="news-title">Se crea la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h3>
+                        <p class="news-excerpt">El núcleo de empresas fundadoras buscan aglutinar en un futuro la máxima representación de este sector tan emblemático en nuestra comunidad.
+Entre los objetivos de la Asociación están el desarrollo de una normativa de aplicación al sector artesano similar a la existente en el resto de Comunidades Autónomas, el lograr un Marco de Apoyo a la Promoción y Comercialización de los productos alimentarios artesanos, la ayuda a la Modernización de sus empresas y dar voz a un sector en auge, pero necesitado de un marco legal que los ampare.</p>
+                        <a href="noticia_asociacion.html" class="back-link"> Ampliar noticia</a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <div class="news-date">8 Julio 2025</div>
+                        <h3 class="news-title">Reunión en la Consejería de Agricultura en Sevilla con la Sra. Directora General de Industrias, Innovación y Cadena Agroalimentaria</h3>
+                        <p class="news-excerpt">El pasado martes 8 de Julio la Directora General de Industrias, Innovación y Cadena Agroalimentaria, Dña Carmen Cristina de Toro, se reunió con miembros de la Junta Directiva de la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía en la Consejería de Agricultura, Pesca, Agua y Desarrollo Rural de la Junta de Andalucía. Por parte de la Dirección General participaron también el Subdirector de Industrias, D. Pedro Cerezuela y el Jefe del Servicio de Calidad, D. Anselmo Martín. Por parte de la Asociación participaron su Presidente, D. Antonio Sanchez, Vicepresidenta, Dña Susana Espinosa, Secretario, D. Miguel de la Rosa, Vocal, Dña Esther Cabello y Asesor Técnico, D. Jesus Pérez.</p>
+                        <a href="noticia_reunion.html" class="back-link"> Ampliar noticia</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            C/Paseo del Fresno, 7<br>
+                            14960 Rute, Córdoba
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Teléfono:</strong><br>
+                            +34 645 92 69 40
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            appandalucia@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">⏰</span>
+                        <div>
+                            <strong>Horario:</strong><br>
+                            Lunes a Viernes: 9:00 - 18:00
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h3>
-                    <p>Preservando la tradición culinaria andaluza desde 1995. Promovemos la excelencia en productos artesanales y el desarrollo sostenible de nuestros productores locales.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <p><a href="#productos">Productos</a></p>
-                    <p><a href="#nosotros">Sobre Nosotros</a></p>
-                    <p><a href="#contacto">Contacto</a></p>
-                    <p><a href="#">Certificaciones</a></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Instagram</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">YouTube</a></p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
-            </div>
+            <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
 
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                scrollToTopBtn.classList.remove('visible');
             }
         });
 
-        // Intersection Observer for animations
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact form submission with email functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create email subject and body
+            const subject = encodeURIComponent('Contacto desde la web - ' + name);
+            const body = encodeURIComponent(
+                'Nombre: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Mensaje:\n' + message
+            );
+            
+            // Create mailto link
+            const mailtoLink = 'mailto:appandalucia@gmail.com?subject=' + subject + '&body=' + body;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation message
+            alert('¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviarlo a appandalucia@gmail.com');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add intersection observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -784,26 +711,18 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.1s';
-                    entry.target.style.animationFillMode = 'both';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        // Observe all animated elements
-        document.querySelectorAll('.slide-up, .fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Product cards hover effect
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        // Observe feature cards, product cards and news cards
+        document.querySelectorAll('.feature-card, .product-card, .news-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feria de Artesanía Alimentaria en Rute - APAA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .article-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1586449480537-8e4e2b8f6e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .article-date {
+            font-size: 1.2rem;
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .article-content {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .article-content h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            color: #555;
+        }
+
+        .highlight-box {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .detail-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #f39c12;
+        }
+
+        .detail-card h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-card p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .article-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <nav class="container">
+            <div class="logo">APAA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#noticias">Noticias</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="article-hero">
+        <div class="container">
+            <h1>Reunión con la Sra. Directora General de Industrias, Innovación y Cadena Agroalimentaria</h1>
+            <div class="article-date">12 Julio 2025</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <a href="index.html#noticias" class="back-link">← Volver a noticias</a>
+        
+        <article class="article-content">
+            <h2>La asociación trasladó a la Directora la necesidad de contar con normas técnicas artesanas</h2>
+            
+            <p>El pasado martes 8 de Julio la Directora General de Industrias, Innovación y Cadena Agroalimentaria, Dña Carmen Cristina de Toro, se reunió con miembros de la Junta Directiva de la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía en la Consejería de Agricultura, Pesca, Agua y Desarrollo Rural de la Junta de Andalucía.</p> 
+
+<p>Por parte de la Dirección General participaron también el Subdirector de Industrias, D. Pedro Cerezuela y el Jefe del Servicio de Calidad, D. Anselmo Martín. Por parte de la Asociación participaron su Presidente, D. Antonio Sanchez, Vicepresidenta, Dña Susana Espinosa, Secretario, D. Miguel de la Rosa, Vocal, Dña Esther Cabello y Asesor Técnico, D. Jesus Pérez.</p>
+
+<p>La asociación trasladó a la Directora la necesidad de contar con normas técnicas artesanas aplicables a los distintos sectores alimentarios (en la actualidad solo el Queso artesano cuenta con norma técnica en nuestra Comunidad) de forma similar a como está regulado en otras Comunidades Autónomas. Asimismo la Asociación hizo entrega de una propuesta o borrador de trabajo de estas normas técnicas para ir avanzando.</p>
+
+            <div class="highlight-box">
+               
+            </div>
+                     
+<h2> La carencia de normas técnicas impide que las distintas empresas puedan tener la mención artesana en sus productos </h2> 
+
+<p> La carencia de estas normas técnicas impide que las distintas empresas que pudieran optar a la mención artesana en sus productos se beneficien de las ventajas de contar con ese distintivo. Ventajas que le supondrían a estas empresas un apoyo muy necesario a la promoción y comercialización de sus productos. La artesanía alimentaria precisa de estos apoyos para su diferenciación de productos industriales. </p>
+<p> La Directora General se mostró muy favorable a la existencia de esta Asociación y estuvo de acuerdo en todo momento en la necesidad de afrontar este reto. Además facilitó a la Asociación distintas posibilidades para permitir el desarrollo de sus objetivos. </p>
+       
+            <div class="gallery">
+                <img src="Fotonoticia2.jpeg" alt="Reunión con la Sra.Directora General">
+             
+             
+            </div>
+           
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
