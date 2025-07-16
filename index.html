@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2327ae60" width="1200" height="600"/><polygon fill="%23229954" points="0,600 1200,600 1200,300 0,400"/></svg>');
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .product-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .news-section {
+            background: white;
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: #f39c12;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ecf0f1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">APAA</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Asociación para la Promoción de la Artesanía Alimentaria Andaluza</h1>
+            <p>Preservando los sabores auténticos de nuestra tierra con productos artesanales de la más alta calidad</p>
+            <a href="#nosotros" class="btn">Descubre Nuestra Historia</a>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestra Misión</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>La Asociación para la Promoción de la Artesanía Alimentaria de Andalucía nace del compromiso de preservar y promocionar los sabores auténticos de nuestra tierra. Reunimos a productores locales que mantienen vivas las tradiciones culinarias ancestrales, utilizando técnicas artesanales que han pasado de padres a hijos durante generaciones.</p>
+                    <br>
+                    <p>Nuestros artesanos trabajan con materias primas de la más alta calidad, respetando los ciclos naturales y evitando procesos industriales que puedan alterar las propiedades originales de los alimentos.</p>
+                </div>
+                <div class="about-text">
+                    <p>Creemos en el valor de lo local, lo sostenible y lo auténtico. Por eso, apoyamos a pequeños productores familiares que mantienen vivas las tradiciones, contribuyendo al desarrollo económico rural y a la preservación de nuestro patrimonio gastronómico.</p>
+                    <br>
+                    <p>Cada producto que avalamos cuenta con la garantía de autenticidad y excelencia que caracteriza a la gastronomía andaluza.</p>
+                </div>
+            </div>
+            
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🫒</div>
+                    <h3>Tradición</h3>
+                    <p>Técnicas ancestrales transmitidas de generación en generación</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Respeto por el medio ambiente y los ciclos naturales</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Calidad</h3>
+                    <p>Productos de la más alta calidad con garantía de excelencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aceite de Oliva Artesanal">
+                    </div>
+                    <div class="product-content">
+                        <h3>Aceite de Oliva Extra Virgen</h3>
+                        <p>Aceite de oliva de primera presión en frío, elaborado con aceitunas seleccionadas de olivares centenarios andaluces.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Panes Artesanos">
+                    </div>
+                    <div class="product-content">
+                        <h3>Panes Artesanos</h3>
+                        <p>Panes elaborados con harinas tradicionales y fermentación natural, cocidos en hornos de leña siguiendo recetas centenarias.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC_0058.jpg" alt="Queso Artesanal">
+                    </div>
+                    <div class="product-content">
+                        <h3>Confiteria</h3>
+                        <p>Productos artesanos de confiteria y bolleria elaborados con recetas típicas de nuestra tierra incluyendo recetas centenarias de conventos andaluces.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.verdemiel.es/modules/homeslider/images/3f41bf8f7d9a22339c22259aea9715ec275fb5c4_Colmena-farmaceutica-VerdeMiel.jpg" alt="Miel Artesanal">
+                    </div>
+                    <div class="product-content">
+                        <h3>Miel de Azahar</h3>
+                        <p>Miel pura recolectada de colmenas ubicadas en Andalucía, con un sabor único y propiedades naturales.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.conservasartesanalescontigo.es/wp-content/uploads/2024/04/remolacha1-400x250.jpg" alt="Conservas Tradicionales">
+                    </div>
+                    <div class="product-content">
+                        <h3>Conservas Tradicionales</h3>
+                        <p>Conservas vegetales elaboradas con recetas familiares, sin conservantes artificiales y con productos de temporada.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC8604-2.jpg" alt="Dulces Artesanales">
+                    </div>
+                    <div class="product-content">
+                        <h3>Helados Artesanos</h3>
+                        <p> Helados con mayor sabor siguiendo recetas y procesos artesanales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="noticias" class="news-section">
+        <div class="container">
+            <h2 class="section-title">Últimas Noticias</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <div class="news-date">12 Julio 2025</div>
+                        <h3 class="news-title">Se crea la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h3>
+                        <p class="news-excerpt">El núcleo de empresas fundadoras buscan aglutinar en un futuro la máxima representación de este sector tan emblemático en nuestra comunidad.
+Entre los objetivos de la Asociación están el desarrollo de una normativa de aplicación al sector artesano similar a la existente en el resto de Comunidades Autónomas, el lograr un Marco de Apoyo a la Promoción y Comercialización de los productos alimentarios artesanos, la ayuda a la Modernización de sus empresas y dar voz a un sector en auge, pero necesitado de un marco legal que los ampare.</p>
+                        <a href="noticia_asociacion.html" class="back-link"> Ampliar noticia</a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <div class="news-date">8 Julio 2025</div>
+                        <h3 class="news-title">Reunión en la Consejería de Agricultura en Sevilla con la Sra. Directora General de Industrias, Innovación y Cadena Agroalimentaria</h3>
+                        <p class="news-excerpt">El pasado martes 8 de Julio la Directora General de Industrias, Innovación y Cadena Agroalimentaria, Dña Carmen Cristina de Toro, se reunió con miembros de la Junta Directiva de la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía en la Consejería de Agricultura, Pesca, Agua y Desarrollo Rural de la Junta de Andalucía. Por parte de la Dirección General participaron también el Subdirector de Industrias, D. Pedro Cerezuela y el Jefe del Servicio de Calidad, D. Anselmo Martín. Por parte de la Asociación participaron su Presidente, D. Antonio Sanchez, Vicepresidenta, Dña Susana Espinosa, Secretario, D. Miguel de la Rosa, Vocal, Dña Esther Cabello y Asesor Técnico, D. Jesus Pérez.</p>
+                        <a href="noticia_reunion.html" class="back-link"> Ampliar noticia</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            C/Paseo del Fresno, 7<br>
+                            14960 Rute, Córdoba
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Teléfono:</strong><br>
+                            +34 645 92 69 40
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            appandalucia@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">⏰</span>
+                        <div>
+                            <strong>Horario:</strong><br>
+                            Lunes a Viernes: 9:00 - 18:00
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact form submission with email functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create email subject and body
+            const subject = encodeURIComponent('Contacto desde la web - ' + name);
+            const body = encodeURIComponent(
+                'Nombre: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Mensaje:\n' + message
+            );
+            
+            // Create mailto link
+            const mailtoLink = 'mailto:appandalucia@gmail.com?subject=' + subject + '&body=' + body;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation message
+            alert('¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviarlo a appandalucia@gmail.com');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards, product cards and news cards
+        document.querySelectorAll('.feature-card, .product-card, .news-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
