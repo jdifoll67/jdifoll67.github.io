@@ -329,39 +329,64 @@
             color: #f39c12;
         }
 
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
+        .field {
+	    margin-bottom: 20px;
+	}
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+  	.field label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #ecf0f1;
+ 	    align-items: center;
+  	    font-size: 14px;
+ 	    color: #f39c12;
+	    margin-bottom: 8px;
+	    font-weight: bold;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
+
+	.field input {
+ 	    display: block;
+  	    width: 100%; 
+	    min-width: 350px;
+	    line-height: 1.8;
+ 	    font-size: 16px;
+	    padding: 12px 15px;
+            border: 2px solid #ddd;
             border-radius: 8px;
-            background: rgba(255,255,255,0.9);
-            font-size: 1rem;
-        }
+            background-color: white;
+            transition: border-color 0.3s ease;
+	}
 
-        .form-group textarea {
-            height: 120px;
+        .field textarea {
+            width: 100%;
+            min-width: 350px;
+            height: 150px;
             resize: vertical;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: border-color 0.3s ease;
         }
 
-        footer {
+        .field textarea:focus {
+            outline: none;
+            border-color: #f39c12;
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+        }
+
+	input[type="submit"] {
+  	display: block;
+  	padding: 12px 40px;
+ 	font-size: 16px;
+  	background-color: #4460AA;
+  	color: #fff;
+  	border: none
+	}
+        
+	footer {
             background: #2c3e50;
             color: white;
             text-align: center;
@@ -426,6 +451,12 @@
             box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
         }
     </style>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('moTpkruyWpvqLEy2F')
+</script>
 </head>
 <body>
     <header>
@@ -491,11 +522,11 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aceite de Oliva Artesanal">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/1a/d7/47/siglo-y-medio-contigo.jpg?w=700&h=400&s=1" alt="Licores Artesanos">
                     </div>
                     <div class="product-content">
-                        <h3>Aceite de Oliva Extra Virgen</h3>
-                        <p>Aceite de oliva de primera presión en frío, elaborado con aceitunas seleccionadas de olivares centenarios andaluces.</p>
+                        <h3>Licores Artesanos</h3>
+                        <p>Licores elaborados mediante destilación o maceración respetando procedimientos tradicionales sin el empleo de aromas, ni colorantes</p>
                     </div>
                 </div>
                 
@@ -505,7 +536,7 @@
                     </div>
                     <div class="product-content">
                         <h3>Panes Artesanos</h3>
-                        <p>Panes elaborados con harinas tradicionales y fermentación natural, cocidos en hornos de leña siguiendo recetas centenarias.</p>
+                        <p>Panes elaborados con harinas tradicionales y fermentación natural, siguiendo recetas centenarias.</p>
                     </div>
                 </div>
                 
@@ -514,8 +545,8 @@
                         <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC_0058.jpg" alt="Queso Artesanal">
                     </div>
                     <div class="product-content">
-                        <h3>Confiteria</h3>
-                        <p>Productos artesanos de confiteria y bolleria elaborados con recetas típicas de nuestra tierra incluyendo recetas centenarias de conventos andaluces.</p>
+                        <h3>Confiteria, Pastelería, Bollería y Repostería Artesana</h3>
+                        <p>Productos artesanos elaborados con recetas típicas de nuestra tierra incluyendo recetas centenarias de conventos andaluces.</p>
                     </div>
                 </div>
                 
@@ -524,24 +555,34 @@
                         <img src="https://www.verdemiel.es/modules/homeslider/images/3f41bf8f7d9a22339c22259aea9715ec275fb5c4_Colmena-farmaceutica-VerdeMiel.jpg" alt="Miel Artesanal">
                     </div>
                     <div class="product-content">
-                        <h3>Miel de Azahar</h3>
-                        <p>Miel pura recolectada de colmenas ubicadas en Andalucía, con un sabor único y propiedades naturales.</p>
+                        <h3>Miel Artesana</h3>
+                        <p>Miel pura recolectada de colmenas ubicadas en Andalucía, extraida sin prensar, ni calentar, con un sabor único y sin aditivos alimentarios.</p>
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://www.conservasartesanalescontigo.es/wp-content/uploads/2024/04/remolacha1-400x250.jpg" alt="Conservas Tradicionales">
+                        <img src="Conservas.jpg" alt="Conservas Tradicionales">
                     </div>
                     <div class="product-content">
-                        <h3>Conservas Tradicionales</h3>
-                        <p>Conservas vegetales elaboradas con recetas familiares, sin conservantes artificiales y con productos de temporada.</p>
+                        <h3>Conservas Tradicionales Vegetales Artesanas</h3>
+                        <p>Conservas vegetales elaboradas con recetas familiares, con ingredientes naturales y sin conservantes artificiales.</p>
                     </div>
                 </div>
                 
-                <div class="product-card">
+		<div class="product-card">
                     <div class="product-image">
-                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC8604-2.jpg" alt="Dulces Artesanales">
+                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/IMG_20211125_114449-2-1-800x800.jpg" alt="Chocolates artesanos">
+                    </div>
+                    <div class="product-content">
+                        <h3>Chocolate y derivados del Cacao Artesanos</h3>
+                        <p>Chocolates artesanos elaborados con procedimientos tradicionales sin el empleo de sucedaneos ni de colorantes artificiales.</p>
+                    </div>
+                </div>
+                
+		<div class="product-card">
+                    <div class="product-image">
+                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC8604-2-100x100.jpg.webp" alt="Helados artesanos">
                     </div>
                     <div class="product-content">
                         <h3>Helados Artesanos</h3>
@@ -559,7 +600,7 @@
                 <article class="news-card">
                     <div class="news-image"></div>
                     <div class="news-content">
-                        <div class="news-date">12 Julio 2025</div>
+                        <div class="news-date">12 Septiembre 2024</div>
                         <h3 class="news-title">Se crea la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h3>
                         <p class="news-excerpt">El núcleo de empresas fundadoras buscan aglutinar en un futuro la máxima representación de este sector tan emblemático en nuestra comunidad.
 Entre los objetivos de la Asociación están el desarrollo de una normativa de aplicación al sector artesano similar a la existente en el resto de Comunidades Autónomas, el lograr un Marco de Apoyo a la Promoción y Comercialización de los productos alimentarios artesanos, la ayuda a la Modernización de sus empresas y dar voz a un sector en auge, pero necesitado de un marco legal que los ampare.</p>
@@ -598,6 +639,7 @@ Entre los objetivos de la Asociación están el desarrollo de una normativa de a
                         <div>
                             <strong>Teléfono:</strong><br>
                             +34 645 92 69 40
+			    +34 670 94 44 28
                         </div>
                     </div>
                     <div class="contact-item">
@@ -616,21 +658,30 @@ Entre los objetivos de la Asociación están el desarrollo de una normativa de a
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Enviar Mensaje</button>
-                </form>
+                <form id="form">
+  <div class="field">
+    <label for="title">ASUNTO</label>
+    <input type="text" name="title" id="title">
+  </div>
+  <div class="field">
+    <label for="email">CORREO ELECTRONICO</label>
+    <input type="text" name="email" id="email">
+  </div>
+  <div class="field">
+    <label for="name">NOMBRE</label>
+    <input type="text" name="name" id="name">
+  </div>
+
+  <div class="field">
+    <label for="message">ESCRIBA SU MENSAJE</label>
+    
+    <textarea id="message" name="message" required></textarea> 	
+
+</div>
+
+  <input type="submit" id="button" value="Enviar correo" >
+</form>
+
             </div>
         </div>
     </section>
@@ -673,35 +724,26 @@ Entre los objetivos de la Asociación están el desarrollo de una normativa de a
         });
 
         // Contact form submission with email functionality
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Create email subject and body
-            const subject = encodeURIComponent('Contacto desde la web - ' + name);
-            const body = encodeURIComponent(
-                'Nombre: ' + name + '\n' +
-                'Email: ' + email + '\n' +
-                'Mensaje:\n' + message
-            );
-            
-            // Create mailto link
-            const mailtoLink = 'mailto:appandalucia@gmail.com?subject=' + subject + '&body=' + body;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show confirmation message
-            alert('¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviarlo a appandalucia@gmail.com');
-            
-            // Reset form
-            this.reset();
-        });
+        const btn = document.getElementById('button');
 
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Enviando correo...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_7ngtw5d';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Enviar Correo';
+      alert('Correo Enviado!');
+    }, (err) => {
+      btn.value = 'Enviar Correo';
+      alert(JSON.stringify(err));
+    });
+});
         // Add intersection observer for animations
         const observerOptions = {
             threshold: 0.1,
