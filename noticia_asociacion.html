@@ -31,10 +31,16 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav {
+       nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
         }
 
        .nav-links {
@@ -203,7 +209,9 @@
 <body>
     <header>
         <nav class="container">
-            <ul class="nav-links">
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <div class="logo">APAA</div>
+	   <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="index.html#nosotros">Nosotros</a></li>
                 <li><a href="index.html#productos">Productos</a></li>
@@ -270,5 +278,13 @@ Apoyamos el emprendimiento rural, la economía circular, el uso de materias prim
             <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

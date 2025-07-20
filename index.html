@@ -34,10 +34,16 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav {
+       nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
         }
 
        .nav-links {
@@ -476,6 +482,8 @@ footer {
 <body>
    <header>
         <nav class="container">
+        	<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+          	<div class="logo">APAA</div>
                 <ul class="nav-links">
 		<li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
@@ -781,6 +789,14 @@ document.getElementById('form')
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
+        });
+    </script>
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
