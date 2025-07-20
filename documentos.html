@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos - APAA</title>
+    <style>
+        /* Mismo estilo que noticia_asociacion.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            //justify-content: space-between;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+        .article-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2327ae60" width="1200" height="600"/><polygon fill="%23229954" points="0,600 1200,600 1200,300 0,400"/></svg>');
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+        .article-hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .article-content {
+            background: white;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 0.5rem;
+        }
+        .pdf-list {
+            list-style: none;
+            padding: 0;
+        }
+        .pdf-list li {
+            margin-bottom: 1rem;
+        }
+        .pdf-list a {
+            display: inline-block;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .pdf-list a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">APAA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#noticias">Noticias</a></li>
+                <li><a href="documentos.html">Descargas</a></li>
+		<li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="article-hero">
+        <div class="container">
+            <h1>Documentos y Propuestas</h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <article class="article-content">
+            <h2>Documentación disponible para descarga y consulta</h2>
+            <ul class="pdf-list">
+                <li><a href="docs\PropNorm.pdf" target="_blank">📄 Propuesta de Normas Técnicas </a></li>
+                <!-- Puedes añadir más enlaces PDF aquí -->
+                <li><a href="docs\dossier.pdf" target="_blank">📄 Nuestra Asociación</a></li>
+            </ul>
+        
+	</article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
