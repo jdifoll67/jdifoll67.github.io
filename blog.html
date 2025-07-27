@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - APAA</title>
+  <style>
+    /* Estilo base igual que documentos.html */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f39c12;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #f39c12;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #f39c12;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+    .article-hero {
+      background: linear-gradient(rgba(15,140,44,0.6), rgba(5,84,24,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2327ae60" width="1200" height="600"/><polygon fill="%23229954" points="0,600 1200,600 1200,300 0,400"/></svg>');
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background-size: cover;
+      background-position: center;
+    }
+    .article-hero h1 {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .blog-container {
+      background: white;
+      padding: 3rem;
+      margin: 2rem 0;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #f39c12;
+      background: #f8f9fa;
+      border-radius: 10px 10px 0 0;
+      overflow: hidden;
+    }
+    .tab {
+      padding: 15px 25px;
+      cursor: pointer;
+      border: none;
+      background: #ecf0f1;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2c3e50;
+      transition: all 0.3s ease;
+      flex: 1;
+      text-align: center;
+    }
+    .tab.active {
+      background: linear-gradient(45deg, #f39c12, #e67e22);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    }
+    .tab:hover:not(.active) {
+      background: #d5dbdb;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    input, textarea { 
+      width: 100%; 
+      margin-top: 15px; 
+      padding: 15px; 
+      border: 2px solid #bdc3c7;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f39c12;
+      box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+    }
+    button { 
+      margin-top: 20px; 
+      padding: 15px 30px; 
+      background: linear-gradient(45deg, #f39c12, #e67e22);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    }
+    button:disabled {
+      background: #95a5a6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    button.aprobar {
+      background: linear-gradient(45deg, #27ae60, #229954);
+    }
+    button.aprobar:hover {
+      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    }
+    button.rechazar {
+      background: linear-gradient(45deg, #e74c3c, #c0392b);
+    }
+    button.rechazar:hover {
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+    .mensaje { 
+      margin-top: 20px; 
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      border-left: 5px solid;
+    }
+    .mensaje-exito {
+      background-color: #d5f4e6;
+      color: #155724;
+      border-left-color: #27ae60;
+    }
+    .mensaje-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left-color: #e74c3c;
+    }
+    .entrada {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-left: 5px solid #f39c12;
+      transition: transform 0.3s ease;
+    }
+    .entrada:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .entrada-pendiente {
+      border-left-color: #e67e22;
+      background: linear-gradient(135deg, #fef9e7 0%, #fcf4e6 100%);
+    }
+    .entrada-titulo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #f39c12;
+      padding-bottom: 8px;
+    }
+    .entrada-meta {
+      color: #7f8c8d;
+      font-size: 14px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+    .entrada-contenido {
+      line-height: 1.8;
+      color: #2c3e50;
+      white-space: pre-wrap;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .entrada-acciones {
+      border-top: 2px solid #ecf0f1;
+      padding-top: 20px;
+    }
+    .loading {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+    }
+    .no-entradas {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      padding: 40px;
+    }
+    h1, h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .admin-login {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header con navegación igual que documentos.html -->
+  <header>
+    <nav class="container">
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <div class="logo">APAA</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="index.html#noticias">Noticias</a></li>
+        <li><a href="documentos.html">Descargas</a></li>
+        <li><a href="#" style="color: white; background: rgba(243, 156, 18, 0.2); padding: 0.5rem 1rem; border-radius: 5px;">Blog</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero section -->
+  <section class="article-hero">
+    <div class="container">
+      <h1>Blog de la Asociación para la Promoción de la Artesanía Alimentaria de Andalucia</h1>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="blog-container">
+      <!-- Pestañas -->
+      <div class="tabs">
+        <button class="tab active" onclick="mostrarTab('escribir')">✍️ Escribir</button>
+        <button class="tab" onclick="mostrarTab('blog')">📖 Blog</button>
+        <button class="tab" onclick="mostrarTab('admin')">🔧 Moderar</button>
+      </div>
+
+      <!-- Tab: Escribir entrada -->
+      <div id="tab-escribir" class="tab-content active">
+        <h1>✍️ Comparte tus ideas sobre artesanía alimentaria</h1>
+        <input type="text" id="autor" placeholder="Tu nombre (opcional)">
+        <input type="text" id="titulo" placeholder="Título del artículo">
+        <textarea id="contenido" rows="8" placeholder="Escribe tu entrada aquí..."></textarea>
+        <button onclick="enviarEntrada()" id="btnEnviar">Enviar para Revisión</button>
+        <div id="mensaje-escribir" class="mensaje" style="display: none;"></div>
+      </div>
+
+      <!-- Tab: Ver blog -->
+      <div id="tab-blog" class="tab-content">
+        <h2>📖 Entradas Publicadas</h2>
+        <div id="loading-blog" class="loading">Cargando entradas...</div>
+        <div id="entradas-blog"></div>
+      </div>
+
+      <!-- Tab: Panel de administración -->
+      <div id="tab-admin" class="tab-content">
+        <h2>🔧 Panel de Moderación</h2>
+        <div class="admin-login">
+          <input type="password" id="passwordAdmin" placeholder="Contraseña de administrador">
+          <button onclick="cargarPendientes()">Acceder</button>
+        </div>
+        <div id="mensaje-admin" class="mensaje" style="display: none;"></div>
+        <div id="loading-pendientes" class="loading" style="display: none;">Cargando entradas pendientes...</div>
+        <div id="entradas-pendientes"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbyg-qLnMz3VOxoA_LJl-9sZ3-k0p4hZWrJScA-BCD0Bnl9H9bP5xVf0W0dm9BZxXNO1/exec';
+
+    // Gestión del menú móvil (igual que documentos.html)
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Gestión de pestañas
+    function mostrarTab(tabName) {
+      // Ocultar todas las pestañas
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Mostrar la pestaña seleccionada
+      document.getElementById('tab-' + tabName).classList.add('active');
+      event.target.classList.add('active');
+      
+      // Cargar contenido según la pestaña
+      if (tabName === 'blog') {
+        cargarEntradasPublicadas();
+      }
+    }
+
+    // Enviar entrada para moderación
+    async function enviarEntrada() {
+      const autor = document.getElementById('autor').value.trim() || 'Anónimo';
+      const titulo = document.getElementById('titulo').value.trim();
+      const contenido = document.getElementById('contenido').value.trim();
+      const btnEnviar = document.getElementById('btnEnviar');
+
+      if (!titulo || !contenido) {
+        mostrarMensaje('mensaje-escribir', 'Por favor, completa al menos el título y el contenido.', 'error');
+        return;
+      }
+
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = 'Enviando...';
+
+      const datos = { 
+        accion: 'enviar',
+        autor, 
+        titulo, 
+        contenido 
+      };
+
+      try {
+        await fetch(URL_SCRIPT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos)
+        });
+
+        // Limpiar campos
+        document.getElementById('autor').value = '';
+        document.getElementById('titulo').value = '';
+        document.getElementById('contenido').value = '';
+        
+        mostrarMensaje('mensaje-escribir', '¡Entrada enviada correctamente! Será revisada antes de publicarse.', 'exito');
+
+      } catch (err) {
+        mostrarMensaje('mensaje-escribir', 'Error al enviar la entrada. Inténtalo de nuevo.', 'error');
+        console.error('Error:', err);
+      } finally {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = 'Enviar para Revisión';
+      }
+    }
+
+    // Cargar entradas publicadas
+    function cargarEntradasPublicadas() {
+      const loadingDiv = document.getElementById('loading-blog');
+      const entradasDiv = document.getElementById('entradas-blog');
+
+      loadingDiv.style.display = 'block';
+      entradasDiv.innerHTML = '';
+
+      const callbackName = 'callback_publicadas_' + Date.now();
+      const script = document.createElement('script');
+      
+      window[callbackName] = function(data) {
+        try {
+          loadingDiv.style.display = 'none';
+          
+          if (data.status === 'ok' && data.entradas && data.entradas.length > 0) {
+            mostrarEntradasPublicadas(data.entradas);
+          } else {
+            entradasDiv.innerHTML = '<div class="no-entradas">No hay entradas publicadas todavía.</div>';
+          }
+        } catch (error) {
+          console.error('Error procesando datos:', error);
+          entradasDiv.innerHTML = '<div class="no-entradas">Error al procesar las entradas.</div>';
+        } finally {
+          document.head.removeChild(script);
+          delete window[callbackName];
+        }
+      };
+      
+      script.src = URL_SCRIPT + '?tipo=publicadas&callback=' + callbackName;
+      script.onerror = function() {
+        loadingDiv.style.display = 'none';
+        entradasDiv.innerHTML = '<div class="no-entradas">Error al cargar las entradas.</div>';
+        document.head.removeChild(script);
+        delete window[callbackName];
+      };
+      
+      document.head.appendChild(script);
+    }
+
+    // Cargar entradas pendientes (solo admin)
+    function cargarPendientes() {
+      const password = document.getElementById('passwordAdmin').value;
+      
+      if (!password) {
+        mostrarMensaje('mensaje-admin', 'Por favor, introduce la contraseña.', 'error');
+        return;
+      }
+
+      const loadingDiv = document.getElementById('loading-pendientes');
+      const entradasDiv = document.getElementById('entradas-pendientes');
+
+      loadingDiv.style.display = 'block';
+      entradasDiv.innerHTML = '';
+
+      const callbackName = 'callback_pendientes_' + Date.now();
+      const script = document.createElement('script');
+      
+      window[callbackName] = function(data) {
+        try {
+          loadingDiv.style.display = 'none';
+          
+          if (data.status === 'ok') {
+            if (data.entradas && data.entradas.length > 0) {
+              mostrarEntradasPendientes(data.entradas);
+              mostrarMensaje('mensaje-admin', 'Entradas pendientes cargadas correctamente.', 'exito');
+            } else {
+              entradasDiv.innerHTML = '<div class="no-entradas">No hay entradas pendientes de moderación.</div>';
+              mostrarMensaje('mensaje-admin', 'No hay entradas pendientes.', 'exito');
+            }
+          } else {
+            mostrarMensaje('mensaje-admin', data.mensaje || 'Error al acceder.', 'error');
+          }
+        } catch (error) {
+          console.error('Error procesando datos:', error);
+          entradasDiv.innerHTML = '<div class="no-entradas">Error al procesar las entradas.</div>';
+        } finally {
+          document.head.removeChild(script);
+          delete window[callbackName];
+        }
+      };
+      
+      script.src = URL_SCRIPT + '?tipo=pendientes&password=' + encodeURIComponent(password) + '&callback=' + callbackName;
+      document.head.appendChild(script);
+    }
+
+    // Moderar entrada (aprobar/rechazar)
+    async function moderarEntrada(fila, decision) {
+      const password = document.getElementById('passwordAdmin').value;
+      
+      const datos = {
+        accion: 'moderar',
+        password: password,
+        fila: fila,
+        decision: decision
+      };
+
+      try {
+        await fetch(URL_SCRIPT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos)
+        });
+
+        const mensaje = decision === 'aprobar' ? 'Entrada aprobada y publicada.' : 'Entrada rechazada.';
+        mostrarMensaje('mensaje-admin', mensaje, 'exito');
+        
+        // Recargar pendientes
+        setTimeout(() => cargarPendientes(), 1000);
+
+      } catch (err) {
+        mostrarMensaje('mensaje-admin', 'Error al moderar la entrada.', 'error');
+        console.error('Error:', err);
+      }
+    }
+
+    // Mostrar entradas publicadas
+    function mostrarEntradasPublicadas(entradas) {
+      const entradasDiv = document.getElementById('entradas-blog');
+      
+      entradasDiv.innerHTML = entradas.map(entrada => {
+        const fecha = new Date(entrada.fecha);
+        const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+          year: 'numeric', month: 'long', day: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        });
+
+        return `
+          <div class="entrada">
+            <div class="entrada-titulo">${escapeHtml(entrada.titulo)}</div>
+            <div class="entrada-meta">Por ${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
+            <div class="entrada-contenido">${escapeHtml(entrada.contenido)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Mostrar entradas pendientes
+    function mostrarEntradasPendientes(entradas) {
+      const entradasDiv = document.getElementById('entradas-pendientes');
+      
+      entradasDiv.innerHTML = entradas.map(entrada => {
+        const fecha = new Date(entrada.fecha);
+        const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+          year: 'numeric', month: 'long', day: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        });
+
+        return `
+          <div class="entrada entrada-pendiente">
+            <div class="entrada-titulo">${escapeHtml(entrada.titulo)}</div>
+            <div class="entrada-meta">Por ${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
+            <div class="entrada-contenido">${escapeHtml(entrada.contenido)}</div>
+            <div class="entrada-acciones">
+              <button class="aprobar" onclick="moderarEntrada(${entrada.fila}, 'aprobar')">✅ Aprobar</button>
+              <button class="rechazar" onclick="moderarEntrada(${entrada.fila}, 'rechazar')">❌ Rechazar</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Utilidades
+    function mostrarMensaje(elementId, texto, tipo) {
+      const mensajeDiv = document.getElementById(elementId);
+      mensajeDiv.textContent = texto;
+      mensajeDiv.className = 'mensaje ' + (tipo === 'exito' ? 'mensaje-exito' : 'mensaje-error');
+      mensajeDiv.style.display = 'block';
+
+      setTimeout(() => {
+        mensajeDiv.style.display = 'none';
+      }, 5000);
+    }
+
+    function escapeHtml(texto) {
+      const div = document.createElement('div');
+      div.textContent = texto;
+      return div.innerHTML;
+    }
+
+    // Cargar entradas publicadas al inicio
+    window.addEventListener('load', () => {
+      cargarEntradasPublicadas();
+    });
+  </script>
+</body>
+</html>

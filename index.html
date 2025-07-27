@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</title>
     <style>
-       * {
+ {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -72,7 +72,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: #1a1a1a;
             background-size: cover;
             background-position: center;
         }
@@ -269,13 +269,14 @@
         }
 
         .news-image {
-            height: 200px;
+            height: 50px;
             background: linear-gradient(45deg, #f39c12, #e67e22);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            color: #1a1a1a;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
 
         .news-content {
@@ -510,7 +511,7 @@ footer {
 </script>
 </head>
 <body>
-   <header>
+  <header>
         <nav class="container">
         	<div class="menu-toggle" id="menu-toggle">&#9776;</div>
           	<div class="logo">APAA</div>
@@ -520,6 +521,7 @@ footer {
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#noticias">Noticias</a></li>
                 <li><a href="documentos.html">Descargas</a></li>
+		<li><a href="blog.html" style="color: white; background: rgba(243, 156, 18, 0.2); padding: 0.5rem 1rem; border-radius: 5px;">Blog</a></li>
 		<li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -572,7 +574,7 @@ footer {
 
     <section id="productos" class="section">
         <div class="container">
-            <h2 class="section-title">Nuestros Productos</h2>
+            <h2 class="section-title">Productos Artesanos</h2>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
@@ -636,44 +638,68 @@ footer {
                 
 		<div class="product-card">
                     <div class="product-image">
-                        <img src="https://esthercabello.com/wp-content/uploads/2021/11/DSC8604-2-100x100.jpg.webp" alt="Helados artesanos">
+                        <img src="helados.jpg" alt="Helados artesanos"> 
                     </div>
                     <div class="product-content">
                         <h3>Helados Artesanos</h3>
                         <p> Helados con mayor sabor siguiendo recetas y procesos artesanales.</p>
                     </div>
                 </div>
-            </div>
+            <div class="product-card">
+                    <div class="product-image">
+                        <img src="aceituna.png" alt="Aceitunas artesanas"> 
+                    </div>
+                    <div class="product-content">
+                        <h3>Aceituna de Mesa</h3>
+                        <p> Preparaciones artesanales de aceituna de mesa de nuestra tierra y preparaciones típicas del territorio.</p>
+                    </div>
+                </div><div class="product-card">
+                    <div class="product-image">
+                        <img src="pasas.jpg" alt="Otros productos artesanos"> 
+                    </div>
+                    <div class="product-content">
+                        <h3>Otros Productos Artesanos</h3>
+                        <p> Productos como las pasas o el pan de higo y otros que conforman el catálogo artesano</p>
+                    </div>
+                </div>
+              
+          </div>
         </div>
     </section>
 
-    <section id="noticias" class="news-section">
-        <div class="container">
-            <h2 class="section-title">Últimas Noticias</h2>
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-date">12 Septiembre 2024</div>
-                        <h3 class="news-title">Se crea la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h3>
-                        <p class="news-excerpt">El núcleo de empresas fundadoras buscan aglutinar en un futuro la máxima representación de este sector tan emblemático en nuestra comunidad.
-Entre los objetivos de la Asociación están el desarrollo de una normativa de aplicación al sector artesano similar a la existente en el resto de Comunidades Autónomas, el lograr un Marco de Apoyo a la Promoción y Comercialización de los productos alimentarios artesanos, la ayuda a la Modernización de sus empresas y dar voz a un sector en auge, pero necesitado de un marco legal que los ampare.</p>
-                        <a href="noticia_asociacion.html" class="back-link"> Ampliar noticia</a>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-date">8 Julio 2025</div>
-                        <h3 class="news-title">Reunión en la Consejería de Agricultura en Sevilla con la Sra. Directora General de Industrias, Innovación y Cadena Agroalimentaria</h3>
-                        <p class="news-excerpt">El pasado martes 8 de Julio la Directora General de Industrias, Innovación y Cadena Agroalimentaria, Dña Carmen Cristina de Toro, se reunió con miembros de la Junta Directiva de la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía en la Consejería de Agricultura, Pesca, Agua y Desarrollo Rural de la Junta de Andalucía. Por parte de la Dirección General participaron también el Subdirector de Industrias, D. Pedro Cerezuela y el Jefe del Servicio de Calidad, D. Anselmo Martín. Por parte de la Asociación participaron su Presidente, D. Antonio Sanchez, Vicepresidenta, Dña Susana Espinosa, Secretario, D. Miguel de la Rosa, Vocal, Dña Esther Cabello y Asesor Técnico, D. Jesus Pérez.</p>
-                        <a href="noticia_reunion.html" class="back-link"> Ampliar noticia</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+    <section id="noticias">
+    <h2 class="section-title">Últimas Noticias</h2>
+
+    <div class="news-grid">
+      <!-- Columna Izquierda: Sectoriales -->
+      <div>
+        <div class="news-image">Sectoriales</div>
+        <iframe src="https://script.google.com/macros/s/AKfycbzngbWEy9F9WiZ3EgbqFb5UHTwcQnhuoK2l8lLCJD-W35DkKmckO_i7Y1V2LFY6J3C8/exec" style="width: 100%; height: 400px; border: none;"></iframe>
+      </div>
+
+      <!-- Columna Derecha: Asociación -->
+      <div>
+        <div class="news-image">Asociación</div>
+
+        <article class="news-card">
+          <div class="news-content">
+            <div class="news-date">8 Julio 2025</div>
+            <h3 class="news-title">Reunión en la Consejería de Agricultura en Sevilla con la Sra. Directora General de Industrias, Innovación y Cadena Agroalimentaria</h3>
+            <a href="noticia_reunion.html" class="back-link">Ampliar noticia</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-content">
+            <div class="news-date">12 Septiembre 2024</div>
+            <h3 class="news-title">Se crea la Asociación para la Promoción de la Artesanía Alimentaria de Andalucía</h3>
+            <a href="noticia_asociacion.html" class="back-link">Ampliar noticia</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
 
     <section id="contacto" class="contact-section">
         <div class="container">
