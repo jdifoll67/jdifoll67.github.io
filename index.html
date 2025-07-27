@@ -360,8 +360,9 @@
 
 	.field input {
  	    display: block;
-  	    width: 100%; 
-	    min-width: 350px;
+  	    max-width: 100%; 
+	    min-width: 200px;
+	    box-sizing: border-box
 	    line-height: 0.8;
  	    font-size: 12px;
 	    padding: 12px 12px;
@@ -372,9 +373,10 @@
 	}
 
         .field textarea {
-            width: 100%;
-            min-width: 350px;
-            height: 60px;
+            max-width: 100%;
+            min-width: 200px;
+            box-sizing: border-box
+	    height: 60px;
             resize: vertical;
             line-height: 0.8;
             font-size: 12px;
