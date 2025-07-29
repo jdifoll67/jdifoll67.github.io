@@ -96,17 +96,20 @@
       overflow: hidden;
     }
     .tab {
-      padding: 15px 25px;
+      padding: 10px 15px;
       cursor: pointer;
       border: none;
       background: #ecf0f1;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       color: #2c3e50;
       transition: all 0.3s ease;
-      flex: 1;
+      min-width: 100px
+      /*flex: 1;*/
       text-align: center;
     }
+    
+
     .tab.active {
       background: linear-gradient(45deg, #f39c12, #e67e22);
       color: white;
@@ -118,7 +121,9 @@
     }
     .tab-content {
       display: none;
+      font-size: 12px
     }
+    
     .tab-content.active {
       display: block;
     }
@@ -328,11 +333,11 @@
 
       <!-- Tab: Escribir entrada -->
       <div id="tab-escribir" class="tab-content active">
-        <h1>✍️ Comparte tus ideas sobre artesanía alimentaria</h1>
+        <h2>✍️ Comparte tus ideas sobre artesanía alimentaria</h2>
         <input type="text" id="autor" placeholder="Tu nombre (opcional)">
         <input type="text" id="titulo" placeholder="Título del artículo">
         <textarea id="contenido" rows="8" placeholder="Escribe tu entrada aquí..."></textarea>
-        <button onclick="enviarEntrada()" id="btnEnviar">Enviar para Revisión</button>
+        <button onclick="enviarEntrada()" id="btnEnviar">Enviar</button>
         <div id="mensaje-escribir" class="mensaje" style="display: none;"></div>
       </div>
 
