@@ -566,34 +566,53 @@
 
     // Mostrar entradas publicadas
     function mostrarEntradasPublicadas(entradas) {
-      const entradasDiv = document.getElementById('entradas-blog');
-      
-      entradasDiv.innerHTML = entradas.map(entrada => {
-        let fechaFormateada = 'Fecha no disponible';
+  const entradasDiv = document.getElementById('entradas-blog');
+  
+  entradasDiv.innerHTML = entradas.map(entrada => {
+    let fechaFormateada = 'Fecha no disponible';
+    
+    try {
+      // Asegurar que tenemos una fecha válida
+      let fechaString = entrada.fecha;
+      if (fechaString) {
+        // Si es un string ISO, convertirlo
+        const fecha = new Date(fechaString);
         
-        try {
-          const fecha = new Date(entrada.fecha);
-          // Verificar si la fecha es válida
-          if (!isNaN(fecha.getTime())) {
-            fechaFormateada = fecha.toLocaleDateString('es-ES', {
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric'
-            });
+        // Verificar si la fecha es válida
+        if (!isNaN(fecha.getTime())) {
+          fechaFormateada = fecha.toLocaleDateString('es-ES', {
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+          });
+        } else {
+          // Si falla, intentar parsearlo manualmente
+          if (fechaString.includes('T')) {
+            const soloFecha = fechaString.split('T')[0];
+            const nuevaFecha = new Date(soloFecha + 'T12:00:00');
+            if (!isNaN(nuevaFecha.getTime())) {
+              fechaFormateada = nuevaFecha.toLocaleDateString('es-ES', {
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric'
+              });
+            }
           }
-        } catch (error) {
-          console.error('Error al formatear fecha:', error);
         }
-
-        return `
-          <div class="entrada">
-            <div class="entrada-titulo">${escapeHtml(entrada.titulo)}</div>
-            <div class="entrada-meta">Por ${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
-            <div class="entrada-contenido">${escapeHtml(entrada.contenido)}</div>
-          </div>
-        `;
-      }).join('');
+      }
+    } catch (error) {
+      console.error('Error al formatear fecha:', error, entrada.fecha);
     }
+
+    return `
+      <div class="entrada">
+        <div class="entrada-titulo">${escapeHtml(entrada.titulo)}</div>
+        <div class="entrada-meta">Por ${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
+        <div class="entrada-contenido">${escapeHtml(entrada.contenido)}</div>
+      </div>
+    `;
+  }).join('');
+}
 
     // Mostrar entradas pendientes
     
@@ -604,17 +623,36 @@ function mostrarEntradasPendientes(entradas) {
     let fechaFormateada = 'Fecha no disponible';
     
     try {
-      const fecha = new Date(entrada.fecha);
-      // Verificar si la fecha es válida
-      if (!isNaN(fecha.getTime())) {
-        fechaFormateada = fecha.toLocaleDateString('es-ES', {
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric'
-        });
+      // Asegurar que tenemos una fecha válida
+      let fechaString = entrada.fecha;
+      if (fechaString) {
+        // Si es un string ISO, convertirlo
+        const fecha = new Date(fechaString);
+        
+        // Verificar si la fecha es válida
+        if (!isNaN(fecha.getTime())) {
+          fechaFormateada = fecha.toLocaleDateString('es-ES', {
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+          });
+        } else {
+          // Si falla, intentar parsearlo manualmente
+          if (fechaString.includes('T')) {
+            const soloFecha = fechaString.split('T')[0];
+            const nuevaFecha = new Date(soloFecha + 'T12:00:00');
+            if (!isNaN(nuevaFecha.getTime())) {
+              fechaFormateada = nuevaFecha.toLocaleDateString('es-ES', {
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric'
+              });
+            }
+          }
+        }
       }
     } catch (error) {
-      console.error('Error al formatear fecha:', error);
+      console.error('Error al formatear fecha:', error, entrada.fecha);
     }
 
     return `
