@@ -326,21 +326,21 @@
     <div class="blog-container">
       <!-- Pestañas -->
       <div class="tabs">
-        <button class="tab active" onclick="mostrarTab('escribir')">✍️ Escribir</button>
-        <button class="tab" onclick="mostrarTab('blog')">📖 Blog</button>
+        <button class="tab active" onclick="mostrarTab('blog')">📖 Blog</button>
+	<button class="tab" onclick="mostrarTab('escribir')">✍️ Escribir</button>
         <button class="tab" onclick="mostrarTab('admin')">🔧 Moderar</button>
       </div>
 
-     <!-- Tab: Ver blog -->
-      <div id="tab-blog" class="tab-content">
+      <!-- Tab: Ver blog -->
+      <div id="tab-blog" class="tab-content active">
         <h2>📖 Entradas Publicadas</h2>
         <div id="loading-blog" class="loading">Cargando entradas...</div>
         <div id="entradas-blog"></div>
       </div>
 
 
-     <!-- Tab: Escribir entrada -->
-      <div id="tab-escribir" class="tab-content active">
+    <!-- Tab: Escribir entrada -->
+      <div id="tab-escribir" class="tab-content">
         <h2>✍️ Comparte tus ideas sobre artesanía alimentaria</h2>
         <input type="text" id="autor" placeholder="Tu nombre (opcional)">
         <input type="text" id="titulo" placeholder="Título del artículo">
@@ -349,7 +349,7 @@
         <div id="mensaje-escribir" class="mensaje" style="display: none;"></div>
       </div>
 
-    <!-- Tab: Panel de administración -->
+      <!-- Tab: Panel de administración -->
       <div id="tab-admin" class="tab-content">
         <h2>🔧 Panel de Moderación</h2>
         <div class="admin-login">
