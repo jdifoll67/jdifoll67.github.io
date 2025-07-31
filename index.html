@@ -482,7 +482,66 @@ footer {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
         }
-    </style>
+    
+/* Iconos CSS personalizados - Agregar al final de tus estilos */
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 3rem; /* mantener para compatibilidad */
+}
+
+/* Icono de Oliva/Tradición */
+.olive-icon {
+    background: linear-gradient(45deg, #8FBC8F, #228B22);
+}
+
+.olive-icon::before {
+    content: '';
+    width: 25px;
+    height: 35px;
+    background: #006400;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform: rotate(-15deg);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+}
+
+/* Icono de Hoja/Sostenibilidad */
+.leaf-icon {
+    background: linear-gradient(45deg, #32CD32, #228B22);
+}
+
+.leaf-icon::before {
+    content: '';
+    width: 28px;
+    height: 38px;
+    background: #006400;
+    border-radius: 0 100% 0 100%;
+    transform: rotate(45deg);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+}
+
+/* Icono de Estrella/Calidad */
+.star-icon {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+}
+
+.star-icon::before {
+    content: '★';
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    line-height: 1;
+}
+
+
+
+</style>
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -535,17 +594,17 @@ footer {
             
             <div class="about-features">
                 <div class="feature-card">
-                    <div class="feature-icon">🫒</div>
+                    <div class="feature-icon olive-icon"></div>
                     <h3>Tradición</h3>
                     <p>Técnicas ancestrales transmitidas de generación en generación</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
+                    <div class="feature-icon leaf-icon"></div>
                     <h3>Sostenibilidad</h3>
                     <p>Respeto por el medio ambiente y los ciclos naturales</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
+                    <div class="feature-icon star-icon"></div>
                     <h3>Calidad</h3>
                     <p>Productos de la más alta calidad con garantía de excelencia</p>
                 </div>
