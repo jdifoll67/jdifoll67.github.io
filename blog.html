@@ -371,7 +371,7 @@
   </footer>
 
   <script>
-    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwLWg0auYqe6rDN_1GHwmeHlTVuoJbGPoFDg-sF3HPMw5lr-TfK7pTUX-VQyJeyiNRf/exec';
+    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwJJIAuJdslhW6iPVRkW_o4xA5dhPooTuhR0796ja2KKPJ4qMBPMYjINWucm4yz-VfP/exec';
 
     // Gestión del menú móvil (igual que documentos.html)
     const toggle = document.getElementById('menu-toggle');
@@ -565,11 +565,17 @@
     }
 
     // Mostrar entradas publicadas
+ // Mostrar entradas publicadas
     function mostrarEntradasPublicadas(entradas) {
   const entradasDiv = document.getElementById('entradas-blog');
   
   entradasDiv.innerHTML = entradas.map(entrada => {
-    let fechaFormateada = 'Fecha no disponible';
+    console.log("Entrada recibida:", entrada);
+    
+    // El campo es "Autor" con mayúscula, no "autor"
+    const autorFinal = entrada.Autor && entrada.Autor.trim() !== '' ? entrada.Autor.trim() : 'Anónimo';
+    
+    let fechaFormateada = entrada.fecha || 'Fecha no disponible';
     
     try {
       // Asegurar que tenemos una fecha válida
@@ -602,12 +608,13 @@
       }
     } catch (error) {
       console.error('Error al formatear fecha:', error, entrada.fecha);
+      fechaFormateada = entrada.fecha || 'Fecha no disponible';
     }
 
     return `
       <div class="entrada">
         <div class="entrada-titulo">${escapeHtml(entrada.titulo)}</div>
-        <div class="entrada-meta">Por ${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
+        <div class="entrada-meta">Por ${escapeHtml(autorFinal)} • ${fechaFormateada}</div>
         <div class="entrada-contenido">${escapeHtml(entrada.contenido)}</div>
       </div>
     `;
@@ -620,7 +627,7 @@ function mostrarEntradasPendientes(entradas) {
   const entradasDiv = document.getElementById('entradas-pendientes');
   
   entradasDiv.innerHTML = entradas.map(entrada => {
-    let fechaFormateada = 'Fecha no disponible';
+    const fechaFormateada = escapeHtml(entrada.fecha || 'Fecha no disponible');
     
     try {
       // Asegurar que tenemos una fecha válida
@@ -658,7 +665,7 @@ function mostrarEntradasPendientes(entradas) {
     return `
       <div class="entrada entrada-pendiente">
         <div class="entrada-titulo">${escapeHtml(entrada.titulo)}</div>
-        <div class="entrada-meta">Por ${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
+        <div class="entrada-meta">${escapeHtml(entrada.autor)} • ${fechaFormateada}</div>
         <div class="entrada-contenido">${escapeHtml(entrada.contenido)}</div>
         <div class="entrada-acciones">
           <button class="aprobar" onclick="moderarEntrada(${entrada.fila}, 'aprobar')">✅ Aprobar</button>
