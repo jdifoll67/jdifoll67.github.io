@@ -371,7 +371,7 @@
   </footer>
 
   <script>
-    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwJJIAuJdslhW6iPVRkW_o4xA5dhPooTuhR0796ja2KKPJ4qMBPMYjINWucm4yz-VfP/exec';
+    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwSqCKQw4CoWtIQfr6kAprhfbdhYca-SEOwHRue3zCgeW8fLSphvSOKO3QH89TJv-iv/exec';
 
     // Gestión del menú móvil (igual que documentos.html)
     const toggle = document.getElementById('menu-toggle');
@@ -423,7 +423,8 @@
         contenido 
       };
 
-      try {
+      console.log('📤 Enviando datos al servidor:', datos);
+	try {
         await fetch(URL_SCRIPT, {
           method: 'POST',
           mode: 'no-cors',
@@ -573,7 +574,7 @@
     console.log("Entrada recibida:", entrada);
     
     // El campo es "Autor" con mayúscula, no "autor"
-    const autorFinal = entrada.Autor && entrada.Autor.trim() !== '' ? entrada.Autor.trim() : 'Anónimo';
+    const autorFinal = entrada.autor && entrada.autor.trim() !== '' ? entrada.autor.trim() : 'Anónimo';
     
     let fechaFormateada = entrada.fecha || 'Fecha no disponible';
     
