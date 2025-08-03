@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentos - APAA</title>
+    <title>Enlaces e Inscripcion - APAA</title>
     <style>
         /* Mismo estilo que noticia_asociacion.html */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,66 +79,144 @@
             border-bottom: 3px solid #f39c12;
             padding-bottom: 0.5rem;
         }
-        .pdf-list {
-            list-style: none;
-            padding: 0;
+
+        /* Estilos para la sección horizontal */
+        #contenido-horizontal {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 3px solid #f39c12;
         }
-        .pdf-list li {
+
+        .contenido-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contenido-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
             margin-bottom: 1rem;
-        }
-        .pdf-list a {
-            display: inline-block;
-            background: linear-gradient(45deg, #f39c12, #e67e22);
-            color: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 8px;
-            text-decoration: none;
             font-weight: bold;
-            transition: transform 0.3s ease;
         }
-        .pdf-list a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+
+        .contenido-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
         }
+
+        /* Contenedor horizontal para los dos iframes */
+        .iframes-horizontal {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .iframe-section {
+            flex: 1;
+            width: 48%;
+            min-width: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .iframe-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .iframe-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .iframe-header.enlaces {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .iframe-header.formulario {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+
+        .iframe-content {
+            width: 100%;
+        }
+
+        .iframe-content iframe {
+            width: 100%;
+            height: 650px;
+            border: none;
+            background: #f8f9fa;
+            display: block;
+        }
+
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
             padding: 2rem 0;
+            margin-top: 0;
         }
-      .menu-toggle {
-            display: none;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
+
+        @media (max-width: 1200px) {
+            .iframes-horizontal {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .iframe-section {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .iframe-content iframe {
+                height: 600px;
+            }
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
             .nav-links {
                 display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #34495e;
-                padding: 1rem 0;
+            }
+            
+            .article-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
             }
 
-            .nav-links.active {
-                display: flex;
+            .contenido-container {
+                padding: 0 1rem;
             }
 
-            .nav-links a {
-                padding: 1rem;
-                text-align: center;
+            .iframe-content iframe {
+                height: 500px;
+            }
+
+            .contenido-title {
+                font-size: 2rem;
+            }
+
+            .iframe-header h3 {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+   <header>
         <nav class="container">
        	    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
             <div class="logo">APAA</div>
@@ -147,7 +225,7 @@
                 <li><a href="index.html#nosotros">Nosotros</a></li>
                 <li><a href="index.html#productos">Productos</a></li>
                 <li><a href="index.html#noticias">Noticias</a></li>
-                <li><a href="documentos.html">Descargas</a></li>
+                <li><a href="inscripciones.html">Enlaces-Inscripcion</a></li>
 		<li><a href="blog.html" background: rgba(243, 156, 18, 0.2); padding: 0.5rem 1rem; border-radius: 5px;">Blog</a></li>
 		<li><a href="index.html#contacto">Contacto</a></li>
             </ul>
@@ -156,35 +234,36 @@
 
     <section class="article-hero">
         <div class="container">
-            <h1>Documentos y Propuestas</h1>
+            <h1>Enlaces e Inscripciones</h1>
         </div>
     </section>
 
-    <div class="container">
-        <article class="article-content">
-            <h2>Documentación disponible para descarga y consulta</h2>
-            <ul class="pdf-list">
-                <li><a href="docs\PropNorm.pdf" target="_blank">📄 Propuesta de Normas Técnicas </a></li>
-                <!-- Puedes añadir más enlaces PDF aquí -->
-                <li><a href="docs\dossier.pdf" target="_blank">📄 Nuestra Asociación</a></li>
-                <li><a href="docs\DecretoBaseAnd2011.pdf" target="_blank">📄 Decreto Base Artesania alimentaria Andalucia (2011)</a></li>
-		<li><a href="docs\DecretoBaseCyL2007.pdf" target="_blank">📄 Decreto Base Artesania alimentaria Castilla y Leon (2007)</a></li>
-		<li><a href="docs\DecretoBaseNavarra1994.pdf" target="_blank">📄 Decreto Base Artesania alimentaria Navarra (1994)</a></li>
-		<li><a href="docs\OrdenReglamArtesArag2011.pdf" target="_blank">📄 Orden Reglamento Artesania alimentaria Aragón (2011)</a></li>
-		<li><a href="docs\DecretoBaseCat2024.pdf" target="_blank">📄 Decreto Base Artesania alimentaria Cataluña (2024)</a></li>
-		<li><a href="docs\OrdenNormasTecnCyL2008.pdf" target="_blank">📄 Orden Normas Técnicas Castilla y León (2008)</a></li>
-		<li><a href="docs\OrdenNormasTecnGal2022.pdf" target="_blank">📄 Orden Normas Técnicas Galicia (2022)</a></li>
-            </ul>
-        
-	</article>
-    </div>
+    <section id="contenido-horizontal">
+        <div class="contenido-container">
+                <div class="iframes-horizontal">
+                <!-- Sección de Enlaces -->
+                <div class="iframe-section">
+                    <div class="iframe-content">
+                        <iframe src="https://script.google.com/macros/s/AKfycby6Gk2NMgTZgB5Q3SSAa5lJC7XqknvPuWffZZNVuCB_ep0mC9MKJ6HUYAZIG05kWuPl/exec"></iframe>
+                    </div>
+                </div>
+
+                <!-- Sección de Formulario -->
+                <div class="iframe-section">
+                    <div class="iframe-content">
+                        <iframe src="https://script.google.com/macros/s/AKfycbzvk9QBAeC4oyrw9qCh9UuCE_-Jru9a20Qpaq-Pm1EEGgkiF1r4CPI5dhnikxNcMv_42Q/exec"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <p>&copy; 2025 Asociación para la Promoción de la Artesanía Alimentaria de Andalucía. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script>
+ <script>
         const toggle = document.getElementById('menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
