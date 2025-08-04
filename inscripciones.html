@@ -61,8 +61,8 @@
             background-size: cover;
             background-position: center;
         }
-        .article-hero h1 {
-            font-size: 2.5rem;
+        .article-hero h2 {
+            font-size: 2rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
         .article-content {
@@ -88,7 +88,7 @@
         }
 
         .contenido-container {
-            max-width: 1400px;
+            max-width: 1600px; /* Aumentado de 1400px a 1600px */
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -112,20 +112,29 @@
         .iframes-horizontal {
             display: flex;
             flex-direction: row;
-            gap: 2rem;
+            gap: 3rem; /* Aumentado de 2rem a 3rem */
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
         }
 
         .iframe-section {
-            flex: 1;
-            width: 48%;
-            min-width: 400px;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             overflow: hidden;
+        }
+
+        /* Enlaces ocupa menos espacio */
+        .iframe-section.enlaces {
+            flex: 0 0 35%; /* Fijo al 35% del ancho */
+            min-width: 450px;
+        }
+
+        /* Formulario ocupa más espacio */
+        .iframe-section.formulario {
+            flex: 1; /* Toma el resto del espacio disponible */
+            min-width: 800px; /* Aumentado de 400px a 800px */
         }
 
         .iframe-header {
@@ -154,10 +163,18 @@
 
         .iframe-content iframe {
             width: 100%;
-            height: 650px;
             border: none;
             background: #f8f9fa;
             display: block;
+        }
+
+        /* Diferentes alturas para cada iframe */
+        .iframe-section.enlaces .iframe-content iframe {
+            height: 700px; /* Altura para enlaces */
+        }
+
+        .iframe-section.formulario .iframe-content iframe {
+            height: 900px; /* Altura mayor para formulario, aumentado de 650px a 900px */
         }
 
         footer {
@@ -168,19 +185,36 @@
             margin-top: 0;
         }
 
+        /* Responsive design mejorado */
+        @media (max-width: 1400px) {
+            .contenido-container {
+                max-width: 1200px;
+            }
+            
+            .iframe-section.formulario {
+                min-width: 700px;
+            }
+        }
+
         @media (max-width: 1200px) {
             .iframes-horizontal {
                 flex-direction: column;
                 gap: 3rem;
             }
             
-            .iframe-section {
+            .iframe-section.enlaces,
+            .iframe-section.formulario {
+                flex: none;
                 width: 100%;
                 min-width: auto;
             }
             
-            .iframe-content iframe {
+            .iframe-section.enlaces .iframe-content iframe {
                 height: 600px;
+            }
+            
+            .iframe-section.formulario .iframe-content iframe {
+                height: 800px;
             }
         }
 
@@ -201,8 +235,12 @@
                 padding: 0 1rem;
             }
 
-            .iframe-content iframe {
+            .iframe-section.enlaces .iframe-content iframe {
                 height: 500px;
+            }
+
+            .iframe-section.formulario .iframe-content iframe {
+                height: 700px;
             }
 
             .contenido-title {
@@ -225,7 +263,7 @@
                 <li><a href="index.html#nosotros">Nosotros</a></li>
                 <li><a href="index.html#productos">Productos</a></li>
                 <li><a href="index.html#noticias">Noticias</a></li>
-                <li><a href="inscripciones.html">Enlaces-Inscripcion</a></li>
+                <li><a href="documentos.html">Descargas</a></li>
 		<li><a href="blog.html" background: rgba(243, 156, 18, 0.2); padding: 0.5rem 1rem; border-radius: 5px;">Blog</a></li>
 		<li><a href="index.html#contacto">Contacto</a></li>
             </ul>
@@ -242,16 +280,16 @@
         <div class="contenido-container">
                 <div class="iframes-horizontal">
                 <!-- Sección de Enlaces -->
-                <div class="iframe-section">
+                <div class="iframe-section enlaces">
                     <div class="iframe-content">
                         <iframe src="https://script.google.com/macros/s/AKfycby6Gk2NMgTZgB5Q3SSAa5lJC7XqknvPuWffZZNVuCB_ep0mC9MKJ6HUYAZIG05kWuPl/exec"></iframe>
                     </div>
                 </div>
 
                 <!-- Sección de Formulario -->
-                <div class="iframe-section">
+                <div class="iframe-section formulario">
                     <div class="iframe-content">
-                        <iframe src="https://script.google.com/macros/s/AKfycbxI1JZI-0fd8lBaKGvSOt9whnVy0twfnJreTL42eI_eKxlvi8kOwuAuWZQ-BVKisMDpCg/exec"></iframe>
+                        <iframe src="https://script.google.com/macros/s/AKfycby8E8a7RFGCN7iRafWioIz0X7ziJUR4JXr3UYc7RCPH17iv1LOWHNTSHVLcTZ7Xs-jK_g/exec"></iframe>
                     </div>
                 </div>
             </div>
