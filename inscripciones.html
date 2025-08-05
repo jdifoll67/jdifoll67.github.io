@@ -122,7 +122,7 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            
         }
 
         /* Enlaces ocupa menos espacio */
@@ -135,6 +135,7 @@
         .iframe-section.formulario {
             flex: 1; /* Toma el resto del espacio disponible */
             min-width: 800px; /* Aumentado de 400px a 800px */
+            position: relative; /* Para posicionar el botón */
         }
 
         .iframe-header {
@@ -177,6 +178,81 @@
             height: 900px; /* Altura mayor para formulario, aumentado de 650px a 900px */
         }
 
+        /* Estilos ÚNICAMENTE para el botón explicativo */
+        .explicacion-container {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .explicacion-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .explicacion-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .explicacion-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        #explicacion-texto {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            z-index: 1001;
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        #explicacion-texto ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #explicacion-texto li {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        #explicacion-texto li:last-child {
+            margin-bottom: 0;
+        }
+
+        #explicacion-texto strong {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
         footer {
             background: #2c3e50;
             color: white;
@@ -193,6 +269,12 @@
             
             .iframe-section.formulario {
                 min-width: 700px;
+            }
+
+            #explicacion-texto {
+                width: 450px;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
 
@@ -215,6 +297,12 @@
             
             .iframe-section.formulario .iframe-content iframe {
                 height: 800px;
+            }
+
+            #explicacion-texto {
+                width: 400px;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
 
@@ -249,6 +337,29 @@
 
             .iframe-header h3 {
                 font-size: 1.2rem;
+            }
+
+            .explicacion-container {
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .explicacion-btn {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+
+            #explicacion-texto {
+                width: 320px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 0.8rem;
+            }
+
+            #explicacion-texto li {
+                font-size: 0.75rem;
+                padding: 0.6rem;
             }
         }
     </style>
@@ -288,6 +399,21 @@
 
                 <!-- Sección de Formulario -->
                 <div class="iframe-section formulario">
+                    <!-- ÚNICO ELEMENTO AÑADIDO: Botón explicativo -->
+                    <div class="explicacion-container">
+                        <button onclick="toggleExplicacion()" class="explicacion-btn">¿Por qué inscribirse?</button>
+                        <div id="explicacion-texto" style="display: none;">
+                            <ul>
+                                <li><strong>1. Porque no tenemos afán de lucro.</strong> Nuestro único interés es que se publiquen las normas técnicas de los sectores artesanos para dar respaldo y reconocimiento a nuestra actividad.</li>
+                                <li><strong>2. Porque si eres artesano, deberías poder hacerlo valer en tus productos.</strong></li>
+				<li><strong>3. Porque ser artesano tiene ventajas.</strong> Ser artesano implica además de poder identificar tu producto como tal, acceder a un importante número de ayudas exclusivas de los sectores artesanos.</li>
+                                <li><strong>4. Porque no es justo </strong> que actualmente estas ventajas solo se disfruten en otras comunidades y no en Andalucía.
+                                <li><strong>5. Porque la única forma de lograr que se publiquen las normas técnicas es insistiendo todos juntos.</strong> Para eso necesitamos unirnos y actuar desde la misma plataforma.</li>
+                                <li><strong>6. Porque, como figura en el formulario, la inscripción es gratuita.</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                     <div class="iframe-content">
                         <iframe src="https://script.google.com/macros/s/AKfycby8E8a7RFGCN7iRafWioIz0X7ziJUR4JXr3UYc7RCPH17iv1LOWHNTSHVLcTZ7Xs-jK_g/exec"></iframe>
                     </div>
@@ -308,6 +434,11 @@
         toggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        function toggleExplicacion() {
+            const texto = document.getElementById('explicacion-texto');
+            texto.style.display = (texto.style.display === 'none') ? 'block' : 'none';
+        }
     </script>
 </body>
 </html>
